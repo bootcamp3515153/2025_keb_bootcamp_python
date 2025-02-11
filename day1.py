@@ -1,4 +1,4 @@
-# 두번째 과제
+# 세번째 과제
 
 def is_prime(num) -> bool:
     """
@@ -6,9 +6,9 @@ def is_prime(num) -> bool:
     :param num: integer number
     :return: boolean type
     """
-    if num >= 2:
+    if num > 2:
         i = 2
-        while i<=(int(num **0.5)+1) :
+        while i<=(int(pow(num,0.5))+1) :
             if num % i == 0:
                 return False
             i += 1
@@ -18,7 +18,7 @@ def is_prime(num) -> bool:
 first_num = int(input("Input first number: "))
 second_num = int(input("Input second number: "))
 
-while first_num < second_num+1 :
+while first_num <= second_num :
     if is_prime(first_num) :
         print(f"{first_num} ")
     first_num += 1
