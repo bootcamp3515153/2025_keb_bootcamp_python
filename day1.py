@@ -1,12 +1,16 @@
 n = int(input("Input number: "))
 
-count = 0
+is_prime = True
 
-for i in range(1, n+1):
-    if n % i == 0:
-        count = count + 1
+if n>= 2:
+    for i in range(2, n):
+        if n % i == 0:
+            is_prime = False
+            break
+else :
+    is_prime = False
 
-if count == 2 :
+if is_prime == True :
     print(f"{n} is prime number")
 else:
     print(f"{n} is NOT prime number")
