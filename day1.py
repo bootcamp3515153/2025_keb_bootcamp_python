@@ -1,3 +1,4 @@
+# 첫번째 과제
 
 def is_prime(num) -> bool:
     """
@@ -6,18 +7,13 @@ def is_prime(num) -> bool:
     :return: boolean type
     """
     if num >= 2:
-        for i in range(2, int(num ** 0.5) + 1):
+        i = 2
+        while i<(int(num **0.5)+1) :
             if num % i == 0:
                 return False
-                #is_prime = False
-                #break
-            #print(i, end=' ')
-    else:
-        return False
+            i += 1
     return True
-# main
-#help(abs)
-help(is_prime)
+
 
 n = int(input("Input number: "))
 
