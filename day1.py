@@ -6,17 +6,21 @@ def is_prime(num) -> bool:
     :param num: integer number
     :return: boolean type
     """
-    if num > 2:
+    if num >= 2:
         i = 2
-        while i<=(int(pow(num,0.5))+1) :
+        while i<(int(pow(num,0.5))+1) :
             if num % i == 0:
                 return False
             i += 1
-
+    else:
+        return False
     return True
 
 first_num = int(input("Input first number: "))
 second_num = int(input("Input second number: "))
+
+if first_num > second_num :
+    first_num, second_num = second_num, first_num
 
 while first_num <= second_num :
     if is_prime(first_num) :
