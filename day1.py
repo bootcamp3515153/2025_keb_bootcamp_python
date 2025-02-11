@@ -1,4 +1,4 @@
-# 첫번째 과제
+# 두번째 과제
 
 def is_prime(num) -> bool:
     """
@@ -8,18 +8,18 @@ def is_prime(num) -> bool:
     """
     if num >= 2:
         i = 2
-        while i<(int(num **0.5)+1) :
+        while i<=(int(num **0.5)+1) :
             if num % i == 0:
                 return False
             i += 1
+
     return True
 
+first_num = int(input("Input first number: "))
+second_num = int(input("Input second number: "))
 
-n = int(input("Input number: "))
-
-
-if is_prime(n) :
-    print(f"{n} is prime number")
-else:
-    print(f"{n} is NOT prime number")
+while first_num < second_num+1 :
+    if is_prime(first_num) :
+        print(f"{first_num} ")
+    first_num += 1
 
