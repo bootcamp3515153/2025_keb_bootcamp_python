@@ -1,5 +1,18 @@
 # 세번째 과제
 
+def my_pow(b,e) -> float:
+    """
+    Receive the base and exponent as input, and return the result of the exponentiation as a floating-point number.
+    :param b: base number
+    :param e: exponent number
+    :return: float type
+    """
+    result = 1
+    for k in range(e):
+        result *= b
+    return result
+
+
 def is_prime(num) -> bool:
     """
     A function that returns True if it is a prime number and False if it is not a prime number
@@ -8,7 +21,8 @@ def is_prime(num) -> bool:
     """
     if num >= 2:
         i = 2
-        while i<(int(pow(num,0.5))+1) :
+        #while i<(int(pow(num,0.5))+1) :
+        while i*i < num+1:
             if num % i == 0:
                 return False
             i += 1
