@@ -1,37 +1,23 @@
-#First Assignment
-# 2중 데코레이터 적용, 성능측정(시간측정) 데코레이터, 디스크림션 데코레이터를 팩토리얼 함수에 적용하시오.
+#Second Assignment
+# kwargs를 이용한 데코레이터 예제 만들기
 
-import time
-
-def discri_decorator(func):
-    def wrapper(*arg):
-        print(f'함수 이름 : {func.__name__}')
-        print(f'함수 설명 : {func.__doc__}')
-        r = func(*arg)
-        return r
+def log_decorrator(func):
+    def wrapper(*args,**kwargs):
+        print(f'Function name : {func.__name__}')
+        print(f'Function Arguments : {args}')
+        print(f'Function Keyword Arguments : {kwargs}')
+        result  = func(*args,**kwargs)
+        return result
     return wrapper
 
-def time_decorator(func):
-    def wrapper(*arg):
-        s = time.time()
-        r = func(*arg)
-        e = time.time()
-        print(f'실행시간 : {e-s}초')
-        return r
-    return wrapper
+@log_decorrator
+def greet(name, greeting = "안녕하세요",age=0):
+    return f'{greeting}, {name}'
 
-@time_decorator
-@discri_decorator
-def factorial_repetition(n) -> int:
-    """
-    Function to calculate factorial using a loop
-    :param n: Number to calculate factorial
-    :return: result
-    """
-    result = 1
-    for i in range(2, n+1):
-        result = result * i
-    return result
 
-number = int(input('Please enter a number to calculate its factorial.\n>>'))
-print(f"결과 : {number}! = {factorial_repetition(number)}")
+print(greet("인하"))
+print(greet("인상","안녕"))
+print(greet("James","Hello"))
+print(greet("Gonzales",greeting="Hola"))
+print(greet("Nakamura",greeting = "Gonniziwa",age =29))
+
